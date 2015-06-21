@@ -22,7 +22,7 @@ $user = array();
 	$comments = array();
 function start($username){
 	
-	//SET URL!!!$location.hash = username;
+	//SET URL!!!
 	
 	getAbout($username);
 	getAllSub($username);
@@ -47,7 +47,7 @@ function getAllSub($username,$after=''){
 	$data['after']=$after;
 	$obj = json_decode(file_get_contents($url),true);
 	if($obj) {
-    	//echo ("sucess callback started: ".$after);
+    	
         for ($i = count($obj['data']['children'])- 1; $i >= 0; $i--) {
         	$thing = array();
 			$thing['id'] = $obj['data']['children'][$i]['data']['id'];
@@ -55,7 +55,6 @@ function getAllSub($username,$after=''){
     		$thing['downs'] = $obj['data']['children'][$i]['data']['downs'];
     		$thing['subreddit'] = $obj['data']['children'][$i]['data']['subreddit'];
     		$thing['created'] = $obj['data']['children'][$i]['data']['created_utc'];
-    		//echo $obj['data']['children'][$i]['kind'];
         	if($obj['data']['children'][$i]['kind'] == "t1"){//comment
         		$comments[]=$thing;
         	}else if($obj['data']['children'][$i]['kind'] == "t3"){//submission
@@ -77,11 +76,9 @@ function getAllSub($username,$after=''){
         	}
         }
         if($obj['data']['after'] || $obj['data']['before']){
-        	//echo("More Posts");
-	        getAllSub($username,$obj['data']['after']);
+  	        getAllSub($username,$obj['data']['after']);
         }else if(!$obj['data']['after'] && !$obj['data']['before']){
-        	//echo("No More Entries");
-        	$self_posts = isset($self_posts) ? $self_posts : '';
+          	$self_posts = isset($self_posts) ? $self_posts : '';
 	        echo("posts: ");var_dump($posts);echo("self: ");var_dump($self_posts);echo("comments: ");var_dump($comments);
         	/*processSubs();
 			processSubreddit();
