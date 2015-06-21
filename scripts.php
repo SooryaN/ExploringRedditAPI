@@ -22,11 +22,7 @@ $user = array();
 	$comments = array();
 function start($username){
 	
-<<<<<<< HEAD
-	//SET URL!!!$location.hash = username;
-=======
 	//SET URL!!!
->>>>>>> d72ee7d25fa4ee6e0d3078ba0fed5ffa41e9f76f
 	
 	getAbout($username);
 	getAllSub($username);
@@ -51,11 +47,6 @@ function getAllSub($username,$after=''){
 	$data['after']=$after;
 	$obj = json_decode(file_get_contents($url),true);
 	if($obj) {
-<<<<<<< HEAD
-    	//echo ("sucess callback started: ".$after);
-=======
-    	
->>>>>>> d72ee7d25fa4ee6e0d3078ba0fed5ffa41e9f76f
         for ($i = count($obj['data']['children'])- 1; $i >= 0; $i--) {
         	$thing = array();
 			$thing['id'] = $obj['data']['children'][$i]['data']['id'];
@@ -63,10 +54,6 @@ function getAllSub($username,$after=''){
     		$thing['downs'] = $obj['data']['children'][$i]['data']['downs'];
     		$thing['subreddit'] = $obj['data']['children'][$i]['data']['subreddit'];
     		$thing['created'] = $obj['data']['children'][$i]['data']['created_utc'];
-<<<<<<< HEAD
-    		//echo $obj['data']['children'][$i]['kind'];
-=======
->>>>>>> d72ee7d25fa4ee6e0d3078ba0fed5ffa41e9f76f
         	if($obj['data']['children'][$i]['kind'] == "t1"){//comment
         		$comments[]=$thing;
         	}else if($obj['data']['children'][$i]['kind'] == "t3"){//submission
@@ -88,17 +75,12 @@ function getAllSub($username,$after=''){
         	}
         }
         if($obj['data']['after'] || $obj['data']['before']){
-<<<<<<< HEAD
-        	//echo("More Posts");
 	        getAllSub($username,$obj['data']['after']);
         }else if(!$obj['data']['after'] && !$obj['data']['before']){
-        	//echo("No More Entries");
         	$self_posts = isset($self_posts) ? $self_posts : '';
-=======
   	        getAllSub($username,$obj['data']['after']);
         }else if(!$obj['data']['after'] && !$obj['data']['before']){
           	$self_posts = isset($self_posts) ? $self_posts : '';
->>>>>>> d72ee7d25fa4ee6e0d3078ba0fed5ffa41e9f76f
 	        echo("posts: ");var_dump($posts);echo("self: ");var_dump($self_posts);echo("comments: ");var_dump($comments);
         	/*processSubs();
 			processSubreddit();
@@ -125,8 +107,4 @@ function getAllSub($username,$after=''){
                 <input type="submit" value="Go" class="button" name="submit">
             </form>
     </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> d72ee7d25fa4ee6e0d3078ba0fed5ffa41e9f76f

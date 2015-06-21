@@ -1,0 +1,144 @@
+body, html{ 
+	margin:0;
+	padding:0;
+	font-family:  Trebuchet MS, Helvetica, Arial,sans-serif;
+	font-weight:300;
+}
+h1,h2,h3,h4,h5{
+	margin: 0px;
+	padding: 0px;
+}
+#navbar{
+	margin-top:5px; 
+	margin-bottom:5px; 
+}
+#navbar a{
+	padding:3px;
+	margin-right:5px; 
+	display:inline-block;
+	text-decoration:none;
+    background:#cee3f8;
+    color:black;
+}
+#navbar a:hover {
+	background-color:#eff7ff;
+}
+.active{
+	color:#ff4500!important;
+	background-color:#eff7ff!important;
+	border: 1px solid #336699;
+}
+
+#form{
+	margin:auto;
+	width:400px;
+	margin-top:10px; 
+	margin-bottom:10px; 
+}
+input{
+    font-size:20px;
+    background:#ccc;
+    border:0px solid #336699;
+    width:240px;
+    padding:5px;
+    webkit-appearance:none;
+    outline-width:0;
+	margin: 0px;
+	display: inline-block;
+}
+input:hover {
+	background-color:#d9d9d9;
+}
+input:focus {
+	background-color:#d9d9d9;
+}
+#content{
+    margin:auto;
+    width:800px;
+    padding:10px;
+    height:100%;
+}
+#user_info{
+	height: 120px;
+	border-top: #336699 solid 1px;
+}
+#stats{
+	position:absolute;
+	border-top: #336699 solid 1px;
+	top:0;
+	right:0;
+	height: 120px;
+}
+#user_info .loading_gif{
+    position:absolute;
+}
+#stats .loading_gif{
+    position:absolute;
+}
+.half_col{
+width:400px;
+}
+.data_box{
+	display: none;
+	position: relative;
+}
+.loading_gif{
+    margin:auto;
+    width:20%;
+    position:absolute;
+    left:25%;
+}
+.button {
+    webkit-appearance:none;
+	background-color:#80C8FF;
+	border:0px solid #dcdcdc;
+	color:#666666;
+	font-family:Trebuchet MS;
+	font-size:20px;
+	font-weight:bold;
+	text-decoration:none;
+	display: inline-block;
+	cursor: pointer;
+	padding:1%;
+	margin:1%;
+	width:100px;
+
+}.button:hover {
+	
+
+}.button:active {
+	position:relative;
+	background-color:#e6e6e6;	
+	top:1px;
+}
+#ad{
+	width:728px;
+	margin: auto;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	display: block;
+	position: relative;
+}
+hr{
+	background: #336699;
+	background-color: #336699;
+	color:#336699;
+	height: 1px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+.graph{
+	border:1px solid #336699;
+	border: dashed 1px gray;
+	padding: 5px;
+
+	display: inline-block;
+	margin: auto;
+
+}
+.bodyText span{
+display: block;
+margin-top: 2px;
+margin-bottom: 5px;
+
+}
