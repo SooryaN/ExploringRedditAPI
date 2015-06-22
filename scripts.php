@@ -58,7 +58,6 @@ function getAllSub($username,$after=''){
         		$comments[]=$thing;
         	}else if($obj['data']['children'][$i]['kind'] == "t3"){//submission
         		$thing['score'] = $obj['data']['children'][$i]['data']['score'];
-        		echo $obj['data']['children'][$i]['data']['is_self'];
         		if($obj['data']['children'][$i]['data']['is_self']){
 	        		$self_posts[]=$thing;
         		}else{
@@ -80,7 +79,7 @@ function getAllSub($username,$after=''){
         	$self_posts = isset($self_posts) ? $self_posts : '';
   	        getAllSub($username,$obj['data']['after']);
         }else if(!$obj['data']['after'] && !$obj['data']['before']){
-          	$self_posts = isset($self_posts) ? $self_posts : '';
+          	//$self_posts = isset($self_posts) ? $self_posts : '';
 	        echo("posts: ");var_dump($posts);echo("self: ");var_dump($self_posts);echo("comments: ");var_dump($comments);
         	/*processSubs();
 			processSubreddit();
@@ -91,6 +90,24 @@ function getAllSub($username,$after=''){
 	    	echo("error");
 	    }
 	}
+function processSubs(){
+	if ( (count($posts)==0) || (count($self_posts==0)) || count($comments==0) ){
+		echo("no_listing");
+	}
+	else{
+		$user['num_posts'] = count($posts);
+		$user['num_self_posts'] = count($self_posts);
+		$user['num_comments'] = count($comments);
+		$user['post_up_total']=0;
+		$user['post_down_total']=0;
+		foreach($posts as $key => $value){
+			$user['post_up_total']+= $posts[$key]['ups'];
+			$user['post_down_total']+= $posts[$key]['downs'];
+		}
+	}
+}
+
+
 ?>
 
 <html> 
