@@ -31,7 +31,7 @@ h1,h2,h3,h4,h5{
 
 #form{
 	margin:auto;
-	width:400px;
+	width:300px;
 	margin-top:10px; 
 	margin-bottom:10px; 
 }
@@ -90,7 +90,7 @@ width:400px;
 }
 .button {
     webkit-appearance:none;
-	background-color:#80C8FF;
+	background-color:#ccc;
 	border:0px solid #dcdcdc;
 	color:#666666;
 	font-family:Trebuchet MS;
@@ -99,12 +99,10 @@ width:400px;
 	text-decoration:none;
 	display: inline-block;
 	cursor: pointer;
-	padding:1%;
-	margin:1%;
-	width:100px;
-
+	padding:5px;
+	padding-right: 10px;
+	padding-left: 10px;
 }.button:hover {
-	
 
 }.button:active {
 	position:relative;
@@ -141,4 +139,21 @@ display: block;
 margin-top: 2px;
 margin-bottom: 5px;
 
+}
+#spinner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -100px;
+	height: 200px;
+	width: 200px;
+	text-indent: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#posts{
+	margin:auto;
+}
+td{
+	min-width:30px;
 }
