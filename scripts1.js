@@ -117,6 +117,7 @@ function addToDB(arr) {
 function start(username) {
   $(".data_box").css("display", "block");
   $(".data_box").html("<img src='loading.gif' alt='Loading Gif' class='loading_gif'/>");
+  window.a=$("#stats").html();
   window.location.hash = username;
   window.user = new Object();
 
@@ -153,18 +154,23 @@ function getAbout(username) {
       if (xhr.status == 404) {
         alert(thrownError);
       }
-    },
-    complete: function() {
-      clearTimeout(reqTimeout);
     }
+    
   });
 }
-var reqTimeout = setTimeout(function() {
-  alert("Request timed out.");
-}, 10);
+
 
 function getAllSub(username, after) {
   $("#posts").html("Retrieving more posts. Please wait.");
+  
+  console.log($("#stats").html() == window.a);
+  setTimeout(function() {
+		if ($("#stats").html() == window.a){
+		 	alert("Either the username is incorrect or too new or servers are down");
+		 	$(".data_box").css("display", "none");
+		 	$("#posts").html("Please enter a registered username");
+		 	}
+	}, 4000);
   if (typeof after === "undefined") {
     after = "";
   }
@@ -231,9 +237,6 @@ function getAllSub(username, after) {
       if (xhr.status == 404) {
         alert(thrownError);
       }
-    },
-    complete: function() {
-      clearTimeout(reqTimeout);
     }
 
   });
@@ -356,7 +359,7 @@ function populate(type) {
 		        { x: 'Saturday', y: window.time_day_arr.repeats_week_day[6] } \
 		        ];\
 		        graph_1.setData(data_1);\
-		        graph_1.setConfig(14,'#336699');\
+		        graph_1.setConfig(14,'red');\
 		        graph_1.render();\
 		        </script>");
     $("#time_day").append("<h3># of Posts per Hour</h3><canvas width='800' height='320' class='graph' id='time_day-hours'></canvas>\
@@ -370,7 +373,7 @@ function populate(type) {
 					data_2.push({x:hour_arr[key],y:window.time_day_arr.repeats_hour[key]});\
 				}\
 		        graph_2.setData(data_2);\
-		        graph_2.setConfig(6,'#336699');\
+		        graph_2.setConfig(6,'gray');\
 		        graph_2.render();\
 		        </script>");
   } else if (type == "subreddit") {
@@ -401,7 +404,7 @@ function populate(type) {
 				console.log('--------');\
 				console.log(nums_only);\
 		        graph_3.setData(data_3);\
-		        graph_3.setConfig(22,'#336699');\
+		        graph_3.setConfig(22,'blue');\
 		        graph_3.render();\
 		        </script>");
   } else if (type == "no_listing") {
