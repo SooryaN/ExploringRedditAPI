@@ -1,7 +1,7 @@
 <?php
-########## MySql details (Replace with yours) #############
+
 $username = "root"; //mysql username
-$password = "password"; //mysql password
+$password = "php23528w!!"; //mysql password
 $hostname = "localhost"; //hostname
 $databasename = 'RedditAPI'; //databasename
 
