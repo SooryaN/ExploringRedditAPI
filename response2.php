@@ -39,15 +39,8 @@
 	}
 	else if(isset($_GET['param']))
     {	$id=$_GET['param'];
-	$sql = "SELECT id FROM members WHERE id='$id'";
-	$result = mysqli_query($mysqli,$sql);
-
-if(mysqli_num_rows($result) >0){
+	
     	$query = ("SELECT json from Hope where ID='$id';");
     	$json=mysqli_fetch_object(mysqli_query($mysqli,$query));
     	echo $json->json;  
-}else{
-   echo 0;
-}
-
     }

@@ -346,7 +346,7 @@ function populate(type) {
   } else if (type == "stats") {
     $("#stats").html("");
     if (typeof(window.user.num_posts)=='undefined')
-      $("#posts").html("Looks like the user has no Posts. Nevermind, there's time to correct that!");
+      {$("#posts").html("Looks like the user has no Posts. Nevermind, there's time to correct that!");$(".data_box").css("display", "block");}
     $("#stats").html("<table>\
 			<tr><td># of Links</td><td>" + window.user.num_posts + "</td></tr>\
 			<tr><td># of Self Posts</td><td>" + window.user.num_self_posts + "</td></tr>\
