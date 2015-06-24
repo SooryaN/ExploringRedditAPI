@@ -39,7 +39,7 @@ Its very well covered [here](https://www.digitalocean.com/community/tutorials/ho
 2. ![stats](images/stats.jpg)
 3. ![Distribution by Days of Week](images/perWeek.jpg)
 4. ![Distribution by Hour of Day](images/perHour.jpg)
-5. ![Distribution by Subreddit](images/perSub.jpg)
+5. ![Distribution by Subreddit](images/perSub.jpg) 
 
 
 ####PS: And thanks to reddit user **1wheel**. I don't know who you are but I've used your stats for the screenshots. Hope you don't mind.
