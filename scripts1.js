@@ -64,10 +64,19 @@ $("#exit").click(function() {
 });
 $("#send_id").click(function() {
   var id = $("#select_id").val();
+  if(id==""){alert("Enter ID or Exit");}
+  else{
   $("#special").css("display", "none");
   $.get("response2.php", {
     param: id
   }, function(data) {
+    console.log(data);
+    if(data.length==3)
+      {
+      //$("#get_user_name").css("display", "none");
+      alert("Invalid ID.");
+    }
+    else{
     window.response = JSON.parse(data);
     console.log(window.response);
     window.user = window.response.user;
@@ -84,8 +93,8 @@ $("#send_id").click(function() {
     populate("time_day");
     populate("subreddit");
 
-  });
-
+  }});
+}
 });
 
 function addToDB(arr) {
@@ -336,6 +345,8 @@ function populate(type) {
 			<tr><td>Cake Day</td><td>" + month + ", " + day + " " + year + "</td></tr>");
   } else if (type == "stats") {
     $("#stats").html("");
+    if (typeof(window.user.num_posts)=='undefined')
+      $("#posts").html("Looks like the user has no Posts. Nevermind, there's time to correct that!");
     $("#stats").html("<table>\
 			<tr><td># of Links</td><td>" + window.user.num_posts + "</td></tr>\
 			<tr><td># of Self Posts</td><td>" + window.user.num_self_posts + "</td></tr>\
@@ -346,7 +357,7 @@ function populate(type) {
 
   } else if (type == "time_day") {
     $("#time_day").html("");
-    $("#time_day").html("<div>The following graphs take in to account all of your past posts and comments. Because of reddit's api limitations, often only your last 1000 posts will show up. Posts that have been deleted will not be accounted for.</div><h3># of Posts per Week Day</h3><canvas width='600' height='300' class='graph' id='time_day-days'></canvas>\
+    $("#time_day").html("<div><br><br>Because of reddit's api limitations, often only the last 1000 posts will show up. Posts that have been deleted will not be accounted for.</div><h3># of Posts per Week Day</h3><canvas width='600' height='300' class='graph' id='time_day-days'></canvas>\
 				<script>\
 				var graph_1 = new graph('time_day-days');\
 		        var data_1 =  [ \

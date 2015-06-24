@@ -3,7 +3,7 @@
 	include("config.php");
 	if($_GET['param']=='All')
 	{	
-		$query = ("SELECT Username,ID,Time_Added FROM Hope WHERE 1;");
+		$query = ("SELECT Username,ID,Time_Added FROM Hope WHERE 1");
 		$q=mysqli_query($mysqli,$query);
 		if ($q->num_rows==00)
 		{echo 0;}
@@ -39,7 +39,15 @@
 	}
 	else if(isset($_GET['param']))
     {	$id=$_GET['param'];
+	$sql = "SELECT id FROM members WHERE id='$id'";
+	$result = mysqli_query($mysqli,$sql);
+
+if(mysqli_num_rows($result) >0){
     	$query = ("SELECT json from Hope where ID='$id';");
     	$json=mysqli_fetch_object(mysqli_query($mysqli,$query));
-    	echo $json->json;
+    	echo $json->json;  
+}else{
+   echo 0;
+}
+
     }
