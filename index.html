@@ -1,25 +1,54 @@
+
 <!DOCTYPE html>
-<html > 
-<html> 
+<html class="no-js"> 
     <head> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="robots" content="all">
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
         <title>reddit User Stats</title>
         <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="main.css">
+        <!--[if IE]><script type="text/javascript" src="js/vendor/excanvas.min.js"></script><![endif]-->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
     <body>
         <div id="content">
-            <hr>
-            <div style="font-size:1.1em;">
-                Just a simple app to retrieve public stats about a Reddit user retrieved using the Reddit API.
-            </br>
-                
-            </div>
-            <form id="form" method="post" action="scripts.php" accept-charset='UTF-8'>
-                <input type="text" style="width:200px;" name="username" placeholder="reddit Username" value="" required autofocus/>
-                <input type="submit" value="Go" class="button" name="submit">
-            </form>
+            <div>
             
-            <hr>
+            </div><h1>Reddit User Stalker</h1>
+            <div style="font-size:1.1em;">
+               *Insert Really Cool Description*
+            </div>
+            <div id="form">
+                <input id="user_input" placeholder="reddit Username" value=""/>
+                <a id="send_user_name" class="button">Go</a>
+                <a id="get_user_name" class="button">Get Recent</a>
+                <a id="pls_work" class="button">Get All</a>
+               <div id="special"> <div id='Select'></div>
+                <input style="display:none;" id="select_id" placeholder="Enter ID to retrieve" value=""/>
+                <a style="display:none;" id="send_id" class="button">GET</a>
+                <a style="display:none;" id="exit" class="button">Cancel</a>
+                
+                </div>
+            </div>
+            
+            <div id="posts"></div>
+            <div style="position:relative;margin-top:5px;">
+                <div class="data_box half_col" id="user_info"> 
+                    
+                </div>
+                <div class="data_box half_col" id="stats">
+                </div>
+            </div>
+            
+            <div class="data_box" id="time_day">
+            </div>
+            <div class="data_box" id="subreddit">
+            </div>
+            
         </div>
+        <script src="graphs.js"></script>
+        <script src="scripts1.js"></script>
+		
     </body>
 </html>
