@@ -1,11 +1,10 @@
 
 <!DOCTYPE html>
-<html class="no-js"> 
+<html> 
     <head> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="robots" content="all">
-        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-        <title>reddit User Stats</title>
+        <title>Reddit stalker</title>
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="main.css">
         <!--[if IE]><script type="text/javascript" src="js/vendor/excanvas.min.js"></script><![endif]-->
@@ -13,21 +12,29 @@
     </head>
     <body>
         <div id="content">
-            <div>
+            <div >
+            <h1>Reddit User Stalker</h1>
+            <br>
+            </div >
+               A simple web app to analyse reddit users' activity patterns.<br><br>
+               Some Instructions:
+               <div style="font-size:0.8em;text-align:left;">
+               <ul style="margin-top:0;margin-bottom:0;margin-left:10%;" >
+               <li>Enter a valid username and hit <b>Go</b> to retrieve stats using the Reddit API</li>
+               <li>Hit <b>Get Recent</b> to view requests from the past hour and retrieve from local DB</li>
+               <li>Hit <b>Get All</b> to view all requests and retrieve from local DB</li>
+               </ul><br>
+               </div>
+                Happy Stalking!
             
-            </div><h1>Reddit User Stalker</h1>
-            <div style="font-size:1.1em;">
-               *Insert Really Cool Description*
-            </div>
             <div id="form">
                 <input id="user_input" placeholder="reddit Username" value=""/>
                 <a id="send_user_name" class="button">Go</a>
                 <a id="get_user_name" class="button">Get Recent</a>
                 <a id="pls_work" class="button ">Get All</a>
-               <div id="special"> <div id='Select'></div>
-                <input style="display:none;" id="select_id" placeholder="Enter ID to retrieve" value=""/>
-                <a style="display:none;" id="send_id" class="button">GET</a>
-                <a style="display:none;" id="exit" class="button">Cancel</a>
+               <div id="special"> <div id='Select' ></div>
+                <input type="number"style="display:none;" id="select_id" placeholder="Enter ID to retrieve" value="" required/>
+                <a style="display:none;float:right;" id="exit" class="button">Cancel</a> <a style="display:none;" id="send_id" class="button">GET</a>
                 
                 </div>
             </div>
