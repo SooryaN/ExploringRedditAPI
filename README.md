@@ -24,7 +24,7 @@ There are only a few things to do after cloning the repo.
       `Username`      VARCHAR(25),
       PRIMARY KEY (id)
       );
-  - [My table](images/myTable.jpg)
+  - ![My table](images/myTable.jpg)
 2. Edit the config.php file. Write in your Username, Password and DBName.
 3. Just open index.html and play around
 
@@ -32,11 +32,11 @@ There are only a few things to do after cloning the repo.
 Its very well covered [here](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu)
 
 ###Screenshots
-1. [Home](images/Home.jpg)
-2. [stats](images/stats.jpg)
-3. [Distribution by Days of Week](images/perWeek.jpg)
-4. [Distribution by Hour of Day](images/perHour.jpg)
-5. [Distribution by Subreddit](images/perSub.jpg)
+1. ![Home](images/Home.jpg)
+2. ![stats](images/stats.jpg)
+3. ![Distribution by Days of Week](images/perWeek.jpg)
+4. ![Distribution by Hour of Day](images/perHour.jpg)
+5. ![Distribution by Subreddit](images/perSub.jpg)
 
 
 
