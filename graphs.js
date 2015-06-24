@@ -7,7 +7,6 @@ function graph(ctx_id){
 	this.setData=setData;
 	function setData(data){
 		this.data=data;
-		console.log(this.data);
 	}
 	this.setConfig=setConfig;
 	function setConfig(padding,color){
@@ -24,7 +23,6 @@ function graph(ctx_id){
 		var padding = this.padding;
 		var num_items = this.data.length;
 		var bar_width = (width/num_items)-padding;//-10 for padding
-		console.log("bar_width: "+bar_width);
 		var scale;
 		for (var i = this.data.length - 1; i >= 0; i--) {
 			if(scale==undefined){
@@ -33,10 +31,7 @@ function graph(ctx_id){
 				scale=this.data[i].y;
 			}
 		};
-		console.log("width:"+width);
-		console.log("height:"+height);
-		console.log("num_items:"+num_items);
-		console.log("scale:"+scale);
+		
 		var scale_counter = 0;
 		for (key in this.data) {
 			this.ctx.fillStyle=this.color;
