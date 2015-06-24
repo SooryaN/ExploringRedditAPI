@@ -1,10 +1,7 @@
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December']; 
 var w_days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 var hour_arr=['12am','1am','2am','3am','4am','5am','6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm','9pm','10pm','11pm'];
-if(window.location.hash) {
-	$("#user_input").val(window.location.hash.substr(1));
-	start(window.location.hash.substr(1));
-}
+$(document).ready(function(){history.pushState(null, null, window.location.href.split('#')[0]);});
 $("#send_user_name").click(function(){
 	var usr = $("#user_input").val();
 	if(usr==""){
@@ -13,55 +10,93 @@ $("#send_user_name").click(function(){
 		start(usr);
 	}
 });
+$("#pls_work").click(function(){
+	$.get("response2.php",{ param:'All'}, function(data){
+		$(".data_box").css("display","block");
+    	console.log(typeof(data));
+    	console.log(data.length);
+    	if(data.length==3)
+    	{	
+    		$("#get_user_name").css("display","none");
+    		$("#get_all").css("display","none");
+    		alert("No requests yet. Feel free to make the first!");
+    	}
+    	else{
+    	$("#special").css("display","block");
+    	$("#Select").html('<div>'+data+'</div>');
+
+     	$("#select_id").css("display","block");
+     	$("#send_id").css("display","block");
+     	$("#exit").css("display","block");
+     	}
+    });
+});
 $("#get_user_name").click(function(){
 	$.get("response2.php",{ param:'Recent'}, function(data){
 		$(".data_box").css("display","block");
-    	response = data;
-    	console.log(data);
+    	console.log(typeof(data));
+    	console.log(data.length);
+    	if(data.length==3)
+    	{	
+    		$("#get_user_name").css("display","none");
+    		alert("No requests made in the last hour.");
+    	}
+    	else{
     	$("#Select").html('<div>'+data+'</div>');
-     
+    	$("#special").css("display","block");
+     	$("#select_id").css("display","block");
+     	$("#send_id").css("display","block");
+     	$("#exit").css("display","block");
+     	
+     	}
     });
-/*
-	$.get("response2.php",{ param:'Username'}, function(data){
-       	window.response = JSON.parse(data);
-       	console.log(window.response);
-       	window.user = window.response.user;
-		window.time_day_arr =  window.response.time_day_arr;
-		window.time_day_arr.list= window.response.time_day_arr.list;
-		window.subreddits =  window.response.subreddits;
-		window.posts =  window.response.posts;
-		window.self_posts =  window.response.self_posts;
-		window.comments =  window.response.comments;
-		$(".data_box").css("display","block");
+});
+$("#exit").click(function(){$("#special").css("display","none");});
+$("#send_id").click(function (){
+	var id = $("#select_id").val();
+	$("#special").css("display","none");
+	$.get("response2.php",{ param:id}, function(data){
+   	window.response = JSON.parse(data);
+   	console.log(window.response);
+   	window.user = window.response.user;
+	window.time_day_arr =  window.response.time_day_arr;
+	window.time_day_arr.list= window.response.time_day_arr.list;
+	window.subreddits =  window.response.subreddits;
+	window.posts =  window.response.posts;
+	window.self_posts =  window.response.self_posts;
+	window.comments =  window.response.comments;
+	window.location.hash=window.user.name+"(Retrieved)";
+	$(".data_box").css("display","block");
 	populate("usr_details");
 	populate("stats");
 	populate("time_day");
 	populate("subreddit");
 
-    });*/
+    });
 
 });
-	function addToDB(arr) {
-			
-		 	//build a post data structure
-			$.ajax({
-			   type: "POST",
-			   url: "response1.php",
-			   //async: false,
-			   data: {details:JSON.stringify(arr),username:window.user.name},
-			   success: function(data){
-			   	
-			      console.log(data);
-			      return true;
-			   },
-			   complete: function() {},
-			   error: function(xhr, textStatus, errorThrown) {
-			   	window.alert("No");
-			     console.log('ajax loading error...');
-			     return false;
-			   }
-			});
-	}
+
+function addToDB(arr) {
+		
+	 	//build a post data structure
+		$.ajax({
+		   type: "POST",
+		   url: "response1.php",
+		   //async: false,
+		   data: {details:JSON.stringify(arr),username:window.user.name},
+		   success: function(data){
+		   	
+		      console.log(data);
+		      return true;
+		   },
+		   complete: function() {},
+		   error: function(xhr, textStatus, errorThrown) {
+		   	window.alert("No");
+		     console.log('ajax loading error...');
+		     return false;
+		   }
+		});
+}
 function start(username){
 	$(".data_box").css("display","block");
 	$(".data_box").html("<img src='loading.gif' alt='Loading Gif' class='loading_gif'/>");
