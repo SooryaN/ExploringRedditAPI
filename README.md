@@ -1,6 +1,5 @@
 # ExploringRedditAPI
 Getting to know APIs and how they work. What better place to start than Reddit?
-It's nowhere close to perfect but you can try it out [here](http://101fbd7f.ngrok.com/).
 
 ###What the app does?
 It retrieves public user data using Reddit's API, parsing through the json files, and gives you an insight into the User's activities through simple bar graphs (drawn using HTML5 canvas).
